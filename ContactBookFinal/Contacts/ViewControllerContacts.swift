@@ -24,13 +24,18 @@ class ViewControllerContacts: UIViewController {
 
     
     var contacts: [Contact] = []
-    
+    private var output: ContactsViewOutput!
 
     @IBOutlet var tableViewContacts: UITableView!
     
     
+    @IBOutlet var indicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let presenter = ContactsPresenter(contactsRepository: Services.factory.getContactsRepository(), callHistoryRepository: Services.factory.getCallHistoryRepository())
+        presenter.view = self
+        output = presenter
+        
         contacts.append(Contact.init(recordId: "1", firstName: "wqwqwq", lastName: "wqwqwq", phone: "wqwqwq"))
         contacts.append(Contact.init(recordId: "1", firstName: "wqwqwq", lastName: "wqwqwq", phone: "wqwqwq"))
         contacts.append(Contact.init(recordId: "1", firstName: "wqwqwq", lastName: "wqwqwq", phone: "wqwqwq"))
@@ -43,6 +48,11 @@ class ViewControllerContacts: UIViewController {
         tableViewContacts.rowHeight = UITableView.automaticDimension
         tableViewContacts.delegate = self
         tableViewContacts.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.viewOpened()
     }
     
 }
@@ -67,4 +77,32 @@ extension ViewControllerContacts: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
+extension ViewControllerContacts: ContactsView {
+    func showContacts(_ contacts: [Contact]) {
+        self.contacts = contacts
+        tableViewContacts.reloadData()
+    }
+    
+    
+
+    func showProgress() {
+        tableViewContacts.isHidden = true
+        indicator.startAnimating()
+    }
+    
+    func hideProgress() {
+        indicator.stopAnimating()
+        tableViewContacts.isHidden = false
+    }
+    
+    
+   
+    
+    func showError(_ error: Error) {
+        
+    }
+}
+
+
 

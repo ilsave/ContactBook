@@ -33,3 +33,16 @@ extension HardcodedRepo: ContactsRepository {
         fatalError("unimplemented")
     }
 }
+
+extension HardcodedRepo: CallHistoryRepository {
+    
+    func getHistory() throws -> [CallRecord] {
+        return records
+    }
+    
+    func add(record: CallRecord) throws {
+        records.append(record)
+    }
+    
+    
+}
