@@ -40,6 +40,7 @@ class ViewControllerContacts: UIViewController {
         let nib = UINib(nibName: "ContactTableViewCell", bundle: nil)
         
         tableViewContacts.register(nib, forCellReuseIdentifier: "ContactTableViewCell")
+        tableViewContacts.rowHeight = UITableView.automaticDimension
         tableViewContacts.delegate = self
         tableViewContacts.dataSource = self
     }
@@ -63,7 +64,7 @@ extension ViewControllerContacts: UITableViewDataSource {
 extension ViewControllerContacts: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
