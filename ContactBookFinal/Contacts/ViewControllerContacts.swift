@@ -9,12 +9,7 @@ import UIKit
 
 class ViewControllerContacts: UIViewController {
     
-    struct Contact {
-        let recordId: String
-        let firstName: String
-        let lastName: String
-        let phone: String
-    }
+
     
     struct ContactsData {
         let firstName: String
@@ -83,8 +78,6 @@ extension ViewControllerContacts: ContactsView {
         self.contacts = contacts
         tableViewContacts.reloadData()
     }
-    
-    
 
     func showProgress() {
         tableViewContacts.isHidden = true
