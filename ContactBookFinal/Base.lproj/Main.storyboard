@@ -8,6 +8,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item-->
+        <scene sceneID="fyA-jn-Ot3">
+            <objects>
+                <navigationController id="56E-Jl-Qan" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="RyL-yW-dvQ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6HB-DD-OIE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="t0n-RL-5iW" kind="relationship" relationship="rootViewController" id="I9x-dW-PaH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbP-A6-aE6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1087" y="157"/>
+        </scene>
         <!--Contacts-->
         <scene sceneID="DST-89-bu6">
             <objects>
@@ -21,7 +38,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KeG-RE-Q3t">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -35,6 +52,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contacts" image="person.3.fill" catalog="system" id="ShS-4D-hel"/>
+                    <navigationItem key="navigationItem" id="VNJ-Rw-Oet">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="KCy-gs-VD5">
+                            <connections>
+                                <action selector="newContactPressed:" destination="t0n-RL-5iW" id="Y7Q-Me-0P0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="indicator" destination="dw5-ku-Myq" id="oqF-fg-BM0"/>
                         <outlet property="tableViewContacts" destination="KeG-RE-Q3t" id="6ez-7T-FS8"/>
@@ -42,7 +66,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CN4-bK-UiK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="149"/>
+            <point key="canvasLocation" x="-110" y="157"/>
+        </scene>
+        <!--New Contact View Controller-->
+        <scene sceneID="rFq-mG-9FB">
+            <objects>
+                <viewController id="HBB-rc-4MM" customClass="NewContactViewController" customModule="ContactBookFinal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="drO-9k-ICG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="LY8-aI-aEA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wjJ-f3-ug0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="efP-uh-RLk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942" y="157"/>
         </scene>
         <!--Contact Tab Bar Controller-->
         <scene sceneID="qOR-R2-ekk">
@@ -54,13 +94,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="t0n-RL-5iW" kind="relationship" relationship="viewControllers" id="zz5-2y-OVo"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="RcC-mG-leW"/>
+                        <segue destination="56E-Jl-Qan" kind="relationship" relationship="viewControllers" id="xu8-dI-cox"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYF-7N-pnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1110" y="505"/>
+            <point key="canvasLocation" x="-2061" y="475"/>
         </scene>
         <!--Recent Calls-->
         <scene sceneID="tne-QT-ifu">

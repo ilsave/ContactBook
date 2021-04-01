@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ContactsUI
 
 class ViewControllerContacts: UIViewController {
     
@@ -19,6 +20,7 @@ class ViewControllerContacts: UIViewController {
 
     
     var contacts: [Contact] = []
+    
     private var output: ContactsViewOutput!
 
     @IBOutlet var tableViewContacts: UITableView!
@@ -31,12 +33,6 @@ class ViewControllerContacts: UIViewController {
         presenter.view = self
         output = presenter
         
-        contacts.append(Contact.init(recordId: "1", firstName: "wqwqwq", lastName: "wqwqwq", phone: "wqwqwq"))
-        contacts.append(Contact.init(recordId: "1", firstName: "wqwqwq", lastName: "wqwqwq", phone: "wqwqwq"))
-        contacts.append(Contact.init(recordId: "1", firstName: "wqwqwq", lastName: "wqwqwq", phone: "wqwqwq"))
-        contacts.append(Contact.init(recordId: "1", firstName: "wqwqwq", lastName: "wqwqwq", phone: "wqwqwq"))
-        contacts.append(Contact.init(recordId: "1", firstName: "wqwqwq", lastName: "wqwqwq", phone: "wqwqwq"))
-        
         let nib = UINib(nibName: "ContactTableViewCell", bundle: nil)
         
         tableViewContacts.register(nib, forCellReuseIdentifier: "ContactTableViewCell")
@@ -48,6 +44,74 @@ class ViewControllerContacts: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         output.viewOpened()
+    }
+    @IBAction func newContactPressed(_ sender: Any) {
+        print("you touched")
+        let vc = CNContactViewController(forNewContact: nil)
+        vc.delegate = self
+        present(UINavigationController(rootViewController: vc), animated: true)
+    }
+    
+}
+
+extension ViewControllerContacts: CNContactViewControllerDelegate{
+    func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {
+        print("happened!")
+        print(contact?.birthday?.day as Any)
+        print(contact?.birthday?.calendar as Any)
+        print(contact?.birthday?.date as Any)
+        print(contact?.birthday?.day as Any)
+        guard let contact = contact, let phoneNumber = (contact.phoneNumbers.first?.value)?.stringValue else {
+            print("we have problems")
+            return
+        }
+        print(contact.birthday?.day)
+        print(contact.birthday?.calendar)
+        print(contact.birthday?.date)
+        print(contact.birthday?.day)
+        let contactBd = Contact(
+            recordId: UUID().uuidString,
+            firstName: contact.givenName,
+            lastName: contact.familyName,
+            phone: phoneNumber)
+        contacts.append(Contact(
+                            recordId: UUID().uuidString,
+                            firstName: contact.givenName,
+                            lastName: contact.familyName,
+                            phone: phoneNumber))
+        
+        print("lalal")
+        
+        guard let docDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+                else { return }
+
+        let fileName = "file.txt"
+        print("lalal")
+                // Build final output URL.
+        let outputURL = docDirectoryURL.appendingPathComponent(fileName)
+        
+        print(docDirectoryURL.path)
+        
+        do {
+            // Encoder, to encode our data.
+            let jsonEncoder = JSONEncoder()
+            
+            // Convert our Object into a Data object.
+            let jsonCodedData = try jsonEncoder.encode(contactBd)
+            
+            // Write the data to output.
+            try jsonCodedData.write(to: outputURL)
+        } catch {
+            // Error Handling.
+            print("Failed to write to file \(error.localizedDescription)")
+            return
+        }
+        
+        
+    }
+    func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
+        print(property.contact.birthday as Any)
+        return true
     }
     
 }
