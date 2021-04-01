@@ -27,6 +27,8 @@
 		69C0CF3B261488EA000B466D /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF3A261488EA000B466D /* ContactsView.swift */; };
 		69C0CF3E26148934000B466D /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF3D26148934000B466D /* Async.swift */; };
 		69C0CF4826158EA8000B466D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69C0CF4726158EA8000B466D /* Settings.bundle */; };
+		69C0CF4B2615C72B000B466D /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF4A2615C72B000B466D /* SettingsBundleHelper.swift */; };
+		69C0CF4E2615D11E000B466D /* ContactTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF4D2615D11E000B466D /* ContactTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		69C0CF3A261488EA000B466D /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		69C0CF3D26148934000B466D /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		69C0CF4726158EA8000B466D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		69C0CF4A2615C72B000B466D /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		69C0CF4D2615D11E000B466D /* ContactTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 				69C0CF1B261472D3000B466D /* ContactTableViewCell.xib */,
 				69C0CF3D26148934000B466D /* Async.swift */,
 				69C0CF4726158EA8000B466D /* Settings.bundle */,
+				69C0CF4A2615C72B000B466D /* SettingsBundleHelper.swift */,
+				69C0CF4D2615D11E000B466D /* ContactTabBarController.swift */,
 			);
 			path = ContactBookFinal;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C0CF4B2615C72B000B466D /* SettingsBundleHelper.swift in Sources */,
 				69C0CF1C261472D3000B466D /* ContactTableViewCell.swift in Sources */,
 				69C0CF37261488AD000B466D /* ContactsPresenter.swift in Sources */,
 				69C0CF3226147E55000B466D /* GistContactsRepo.swift in Sources */,
@@ -209,6 +216,7 @@
 				69C0CF2C26147DD7000B466D /* ServicesFactory.swift in Sources */,
 				69C0CF08261463DC000B466D /* ContactBookFinal.xcdatamodeld in Sources */,
 				69C0CF1826146C87000B466D /* RecentCallsViewController.swift in Sources */,
+				69C0CF4E2615D11E000B466D /* ContactTabBarController.swift in Sources */,
 				69C0CF00261463DC000B466D /* SceneDelegate.swift in Sources */,
 				69C0CF3E26148934000B466D /* Async.swift in Sources */,
 				69C0CF3B261488EA000B466D /* ContactsView.swift in Sources */,

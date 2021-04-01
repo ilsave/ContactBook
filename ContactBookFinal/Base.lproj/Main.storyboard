@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="-110" y="149"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Contact Tab Bar Controller-->
         <scene sceneID="qOR-R2-ekk">
             <objects>
-                <tabBarController id="3cx-HH-4CA" sceneMemberID="viewController">
+                <tabBarController id="3cx-HH-4CA" customClass="ContactTabBarController" customModule="ContactBookFinal" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eIJ-cT-zjr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
