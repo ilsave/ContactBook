@@ -26,6 +26,7 @@
 		69C0CF37261488AD000B466D /* ContactsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF36261488AD000B466D /* ContactsPresenter.swift */; };
 		69C0CF3B261488EA000B466D /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF3A261488EA000B466D /* ContactsView.swift */; };
 		69C0CF3E26148934000B466D /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF3D26148934000B466D /* Async.swift */; };
+		69C0CF4826158EA8000B466D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69C0CF4726158EA8000B466D /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		69C0CF36261488AD000B466D /* ContactsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsPresenter.swift; sourceTree = "<group>"; };
 		69C0CF3A261488EA000B466D /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		69C0CF3D26148934000B466D /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		69C0CF4726158EA8000B466D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				69C0CF1A261472D3000B466D /* ContactTableViewCell.swift */,
 				69C0CF1B261472D3000B466D /* ContactTableViewCell.xib */,
 				69C0CF3D26148934000B466D /* Async.swift */,
+				69C0CF4726158EA8000B466D /* Settings.bundle */,
 			);
 			path = ContactBookFinal;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				69C0CF1D261472D3000B466D /* ContactTableViewCell.xib in Resources */,
 				69C0CF0D261463DD000B466D /* LaunchScreen.storyboard in Resources */,
+				69C0CF4826158EA8000B466D /* Settings.bundle in Resources */,
 				69C0CF0A261463DD000B466D /* Assets.xcassets in Resources */,
 				69C0CF05261463DC000B466D /* Main.storyboard in Resources */,
 			);
