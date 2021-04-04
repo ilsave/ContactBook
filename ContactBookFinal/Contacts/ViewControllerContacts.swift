@@ -11,15 +11,8 @@ import UserNotifications
 
 class ViewControllerContacts: UIViewController {
     
+ 
 
-    
-    struct ContactsData {
-        let firstName: String
-        let lastName: String
-        let phone: String
-    }
-
-    
     var contacts: [Contact] = []
     
     private var output: ContactsViewOutput!
@@ -44,7 +37,9 @@ class ViewControllerContacts: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        output.viewOpened()
+        if contacts.isEmpty{
+           output.viewOpened()
+        }
     }
     @IBAction func newContactPressed(_ sender: Any) {
         print("you touched")
@@ -70,73 +65,30 @@ extension ViewControllerContacts: CNContactViewControllerDelegate{
         print(contact.birthday?.calendar)
         print(contact.birthday?.date)
         print(contact.birthday?.day)
-        let contactBd = Contact(
-            recordId: UUID().uuidString,
-            firstName: contact.givenName,
-            lastName: contact.familyName,
-            phone: phoneNumber)
-        contacts.append(Contact(
-                            recordId: UUID().uuidString,
-                            firstName: contact.givenName,
-                            lastName: contact.familyName,
-                            phone: phoneNumber))
+    
+        let userInput = ContactsData.init(firstName: contact.givenName, lastName: contact.familyName, phone: phoneNumber)
+        output.newContactAdded(userInput)
         
-        print("lalal")
-        
+        //got list of urls in app directory
         guard let docDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
                 else { return }
 
         let fileName = "file.txt"
         print("lalal")
-                // Build final output URL.
-        let outputURL = docDirectoryURL.appendingPathComponent(fileName)
-        
-        print(docDirectoryURL.path)
-        
+        let fileManager = FileManager.default
+
+     
         do {
-            // Encoder, to encode our data.
             let jsonEncoder = JSONEncoder()
-            
-            // Convert our Object into a Data object.
-            let jsonCodedData = try jsonEncoder.encode(contactBd)
-            
-            // Write the data to output.
-            try jsonCodedData.write(to: outputURL)
+            let jsonDecoder = JSONDecoder()
+        
         } catch {
             // Error Handling.
             print("Failed to write to file \(error.localizedDescription)")
             return
         }
         
-//        let content = UNMutableNotificationContent()
-//        content.title = "Title"
-//        content.body = "Body"
-//        content.sound = UNNotificationSound.default
-//
-//        let gregorian = Calendar(identifier: .gregorian)
-//        let now = Date()
-//        var components = gregorian.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
-//
-//        // Change the time to 7:00:00 in your locale
-//        components.hour = 17
-//        components.minute = 53
-//        components.second = 0
-//
-//        let date = gregorian.date(from: components)!
-//
-//        let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date)
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
-//
-//
-//        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//        print("INSIDE NOTIFICATION")
-//
-//        UNUserNotificationCenter.current().add(request, withCompletionHandler: {(error) in
-//            if let error = error {
-//                print("SOMETHING WENT WRONG")
-//            }
-//        })
-//
+
         let center = UNUserNotificationCenter.current()
                 
                 center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
@@ -157,7 +109,6 @@ extension ViewControllerContacts: CNContactViewControllerDelegate{
                 let uuidString = UUID().uuidString
                 
                 let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        
         
     }
     func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
@@ -185,6 +136,7 @@ extension ViewControllerContacts: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        output.contactPressed(contacts[indexPath.row])
     }
 }
 
@@ -203,9 +155,6 @@ extension ViewControllerContacts: ContactsView {
         indicator.stopAnimating()
         tableViewContacts.isHidden = false
     }
-    
-    
-   
     
     func showError(_ error: Error) {
         

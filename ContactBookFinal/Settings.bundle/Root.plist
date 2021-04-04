@@ -12,7 +12,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Constacts first</string>
+			<string> Call history first</string>
 			<key>Key</key>
 			<string>RESET</string>
 			<key>DefaultValue</key>

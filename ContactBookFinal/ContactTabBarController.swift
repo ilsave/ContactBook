@@ -29,9 +29,9 @@ class ContactTabBarController: UITabBarController {
     @objc func defaultsChanged(){
         let contactsFirst = UserDefaults.standard.bool(forKey: SettingsBundleKeys.Reset)
         if contactsFirst == true {
-            self.selectedIndex = 0
-        } else {
             self.selectedIndex = 1
+        } else {
+            self.selectedIndex = 0
         }
     }
     
