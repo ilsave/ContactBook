@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ContactsUI
 
 struct Contact: Codable {
     let recordId: String

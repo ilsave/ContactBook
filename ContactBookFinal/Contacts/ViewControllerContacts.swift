@@ -68,49 +68,10 @@ extension ViewControllerContacts: CNContactViewControllerDelegate{
     
         let userInput = ContactsData.init(firstName: contact.givenName, lastName: contact.familyName, phone: phoneNumber)
         output.newContactAdded(userInput)
-        
-        //got list of urls in app directory
-        guard let docDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-                else { return }
-
-        let fileName = "file.txt"
-        print("lalal")
-        let fileManager = FileManager.default
-
-     
-        do {
-            let jsonEncoder = JSONEncoder()
-            let jsonDecoder = JSONDecoder()
-        
-        } catch {
-            // Error Handling.
-            print("Failed to write to file \(error.localizedDescription)")
-            return
-        }
-        
-
-        let center = UNUserNotificationCenter.current()
-                
-                center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-                }
-                
-              
-                let content = UNMutableNotificationContent()
-                content.title = "Allo che tam s dengami?"
-                content.body = "Tu komy zvonish?"
-                
-                
-                let date = Date().addingTimeInterval(7)
-                
-                let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-                
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-                
-                let uuidString = UUID().uuidString
-                
-                let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        
+        output.createNotification(contact: contact)
     }
+    
+    
     func contactViewController(_ viewController: CNContactViewController, shouldPerformDefaultActionFor property: CNContactProperty) -> Bool {
         print(property.contact.birthday as Any)
         return true

@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import ContactsUI
 
 class GistContactsRepo: ContactsRepository {
+    
     
     private let url: URL
     private let decoder: JSONDecoder
@@ -51,6 +53,7 @@ class GistContactsRepo: ContactsRepository {
             return contactsDb
         }
     }
+    
     
     func getContactsFromApi() throws -> [Contact] {
         let sem = DispatchSemaphore(value: 0)
@@ -114,12 +117,17 @@ class GistContactsRepo: ContactsRepository {
         let data = try Data(contentsOf: pathComponent)
         var items = try jsonDecoder.decode([Contact].self, from: data)
         
-        items.append(Contact.init(recordId: UUID().uuidString, firstName: contact.firstName, lastName: contact.lastName, phone: contact.phone))
+        let newContact = Contact.init(recordId: UUID().uuidString, firstName: contact.firstName, lastName: contact.lastName, phone: contact.phone)
+        
+        items.append(newContact)
         
         let jsonCodedData = try jsonEncoder.encode(items)
         try jsonCodedData.write(to: pathComponent)
         print("element has been added!")
+        
+        
     }
+   
     
     func delete(contact: Contact) throws {
         fatalError("unimplemented")

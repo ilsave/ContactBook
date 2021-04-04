@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ContactsUI
 
 protocol ContactsView: class {
     func showContacts(_ contacts: [Contact])
@@ -19,4 +20,5 @@ protocol ContactsViewOutput {
     func viewOpened()
     func contactPressed(_ contact: Contact)
     func newContactAdded(_ contact: ContactsData)
+    func createNotification(contact: CNContact)
 }
