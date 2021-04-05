@@ -51,18 +51,16 @@ class ViewControllerContacts: UIViewController {
 
 extension ViewControllerContacts: CNContactViewControllerDelegate{
     func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {
-        print("happened!")
-        print(contact?.birthday?.day as Any)
-        print(contact?.birthday?.calendar as Any)
-        print(contact?.birthday?.date as Any)
-        print(contact?.birthday?.day as Any)
-        guard let contact = contact, let phoneNumber = (contact.phoneNumbers.first?.value)?.stringValue else {
-            print("we have problems")
+        guard let contact = contact, let phoneNumber = (contact.phoneNumbers.first?.value)?.stringValue,
+              let birthday = contact.birthday!.date
+              else {
             return
         }
-        let userInput = ContactsData.init(firstName: contact.givenName, lastName: contact.familyName, phone: phoneNumber)
+       
+        let userInput = ContactsData.init(firstName: contact.givenName, lastName: contact.familyName, phone: phoneNumber, birthday: birthday)
+        
         output.newContactAdded(userInput)
-        output.createNotification(contact: contact)
+       // output.createNotification(contact: contact)
     }
     
     

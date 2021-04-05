@@ -19,6 +19,12 @@ struct ContactsData {
     let firstName: String
     let lastName: String
     let phone: String
+    let birthday: Date
+}
+
+struct ContactNotification {
+    let contact: Contact
+    let birthday: Date
 }
 
 

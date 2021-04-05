@@ -111,7 +111,6 @@ class GistContactsRepo: ContactsRepository {
                 else { return }
         let jsonDecoder = JSONDecoder()
         let jsonEncoder = JSONEncoder()
-        
         let innerUrl = URL(fileURLWithPath: docDirectoryURL.absoluteString)
         let pathComponent = innerUrl.appendingPathComponent(databaseName)
         let data = try Data(contentsOf: pathComponent)
@@ -125,9 +124,44 @@ class GistContactsRepo: ContactsRepository {
         try jsonCodedData.write(to: pathComponent)
         print("element has been added!")
         
-        
+        let notificationContact = ContactNotification.init(contact: newContact, birthday: contact.birthday)
+        createNotification(contactNotification: notificationContact)
     }
    
+    func createNotification(contactNotification: ContactNotification) {
+        let birthday = contactNotification.birthday
+        
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound]
+        center.requestAuthorization(options: options) { (granted, error) in
+            if !granted {
+                print("Something went wrong \(error)")
+            }
+        }
+        let content = UNMutableNotificationContent()
+        content.title = "Don't forget"
+        content.body = "Its \(contactNotification.contact.firstName) BirthDay today! Its perfect time to make a call and celebrate!:)))"
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+        print(birthday)
+        var components = Calendar.current.dateComponents([.month, .day], from: birthday)
+        
+        components.hour = 12
+        components.minute = 0
+        components.second = 0
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        
+        
+        let request = UNNotificationRequest(identifier: contactNotification.contact.recordId, content: content, trigger: trigger)
+        
+        center.add(request, withCompletionHandler: { (error) in
+            if let error = error {
+                print(error)
+            }
+        })
+    }
+    
     
     func delete(contact: Contact) throws {
         fatalError("unimplemented")
