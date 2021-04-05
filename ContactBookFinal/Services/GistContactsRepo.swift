@@ -17,6 +17,10 @@ class GistContactsRepo: ContactsRepository {
     
     private var contacts: [Contact] = []
     
+    
+    
+    let secondsToWaitForResponse: Int = 3
+    
     init(url: URL) {
         self.url = url
         decoder = JSONDecoder()
@@ -24,7 +28,6 @@ class GistContactsRepo: ContactsRepository {
     
     func getContacts() throws -> [Contact] {
         
-        //check if file exists
         guard let docDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
                 else { return []}
         
@@ -37,14 +40,12 @@ class GistContactsRepo: ContactsRepository {
         let filePath = pathComponent.path
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: filePath) {
-            print("FILE AVAILABLE \(pathComponent)")
             fileURL = pathComponent
             let data = try Data(contentsOf: fileURL!)
             let jsonDecoder = JSONDecoder()
             let items = try jsonDecoder.decode([Contact].self, from: data)
             return items
         } else {
-            print("FILE NOT AVAILABLE \(pathComponent)")
             fileURL = URL(fileURLWithPath: databaseName, relativeTo: docDirectoryURL)
             let jsonEncoder = JSONEncoder()
             let contactsDb = try getContactsFromApi()
@@ -95,7 +96,12 @@ class GistContactsRepo: ContactsRepository {
             }
         }
         task.resume()
-        // TODO: add timeout
+        let time: DispatchTime = .now() + .seconds(secondsToWaitForResponse)
+                if (sem.wait(timeout: time) == .timedOut) {
+                    print("We have been waiting for too long time mate")
+                    return []
+                }
+        
         sem.wait()
         
         
@@ -122,7 +128,6 @@ class GistContactsRepo: ContactsRepository {
         
         let jsonCodedData = try jsonEncoder.encode(items)
         try jsonCodedData.write(to: pathComponent)
-        print("element has been added!")
         
         let notificationContact = ContactNotification.init(contact: newContact, birthday: contact.birthday)
         createNotification(contactNotification: notificationContact)
@@ -139,7 +144,7 @@ class GistContactsRepo: ContactsRepository {
             }
         }
         let content = UNMutableNotificationContent()
-        content.title = "Don't forget"
+        content.title = "Don't forget!"
         content.body = "Its \(contactNotification.contact.firstName) BirthDay today! Its perfect time to make a call and celebrate!:)))"
         content.sound = UNNotificationSound.default
         content.badge = 1

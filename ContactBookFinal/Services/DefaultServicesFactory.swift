@@ -13,7 +13,7 @@ class DefaultServicesFactory: ServicesFactory {
     private var callHistory: CallHistoryRepository
     
     init() {
-        let repo = HardcodedRepo()
+        let repo = CallRecordsRepo()
         contacts = GistContactsRepo(url: URL(string: "https://gist.githubusercontent.com/artgoncharov/d257658423edd46a9ead5f721b837b8c/raw/c38ace33a7c871e4ad3b347fc4cd970bb45561a3/contacts_data.json")!)
         callHistory = repo
     }

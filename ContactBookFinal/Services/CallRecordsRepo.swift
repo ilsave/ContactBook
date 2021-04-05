@@ -7,12 +7,12 @@
 
 import Foundation
 
-class HardcodedRepo {
+class CallRecordsRepo {
     private var records: [CallRecord] = []
 }
 
 
-extension HardcodedRepo: CallHistoryRepository {
+extension CallRecordsRepo: CallHistoryRepository {
     
     func getHistory() throws -> [CallRecord] {
         return records

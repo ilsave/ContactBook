@@ -13,7 +13,7 @@ class ContactsPresenter {
     private var contactsRepository: ContactsRepository!
     private var callHistoryRepository: CallHistoryRepository!
     weak var view: ContactsView?
-
+    
     init(contactsRepository: ContactsRepository, callHistoryRepository: CallHistoryRepository) {
         self.contactsRepository = contactsRepository
         self.callHistoryRepository = callHistoryRepository
@@ -61,8 +61,9 @@ extension ContactsPresenter: ContactsViewOutput {
             formatter.timeZone = TimeZone.current
             formatter.dateFormat = "HH:mm"
             let dateString = formatter.string(from: now)
-            try callHistoryRepository.add(record: CallRecord(timestamp: dateString,
-                                                             phone: contact.phone))
+            try callHistoryRepository.add(record: CallRecord(
+                timestamp: dateString,
+                phone: contact.phone))
         } catch {
             view?.showError(error)
         }

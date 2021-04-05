@@ -23,7 +23,7 @@
 		69C0CF1D261472D3000B466D /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69C0CF1B261472D3000B466D /* ContactTableViewCell.xib */; };
 		69C0CF2126147B94000B466D /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF2026147B94000B466D /* ContactsRepository.swift */; };
 		69C0CF2426147C6E000B466D /* CallHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF2326147C6E000B466D /* CallHistoryRepository.swift */; };
-		69C0CF2726147D1E000B466D /* HardcodedRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF2626147D1E000B466D /* HardcodedRepo.swift */; };
+		69C0CF2726147D1E000B466D /* CallRecordsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF2626147D1E000B466D /* CallRecordsRepo.swift */; };
 		69C0CF2C26147DD7000B466D /* ServicesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF2B26147DD7000B466D /* ServicesFactory.swift */; };
 		69C0CF2F26147E2A000B466D /* DefaultServicesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF2E26147E2A000B466D /* DefaultServicesFactory.swift */; };
 		69C0CF3226147E55000B466D /* GistContactsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF3126147E55000B466D /* GistContactsRepo.swift */; };
@@ -33,7 +33,6 @@
 		69C0CF4826158EA8000B466D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69C0CF4726158EA8000B466D /* Settings.bundle */; };
 		69C0CF4B2615C72B000B466D /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF4A2615C72B000B466D /* SettingsBundleHelper.swift */; };
 		69C0CF4E2615D11E000B466D /* ContactTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF4D2615D11E000B466D /* ContactTabBarController.swift */; };
-		69C0CF522615D7AD000B466D /* NewContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF512615D7AD000B466D /* NewContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +54,7 @@
 		69C0CF1B261472D3000B466D /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		69C0CF2026147B94000B466D /* ContactsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRepository.swift; sourceTree = "<group>"; };
 		69C0CF2326147C6E000B466D /* CallHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallHistoryRepository.swift; sourceTree = "<group>"; };
-		69C0CF2626147D1E000B466D /* HardcodedRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedRepo.swift; sourceTree = "<group>"; };
+		69C0CF2626147D1E000B466D /* CallRecordsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallRecordsRepo.swift; sourceTree = "<group>"; };
 		69C0CF2B26147DD7000B466D /* ServicesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesFactory.swift; sourceTree = "<group>"; };
 		69C0CF2E26147E2A000B466D /* DefaultServicesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServicesFactory.swift; sourceTree = "<group>"; };
 		69C0CF3126147E55000B466D /* GistContactsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistContactsRepo.swift; sourceTree = "<group>"; };
@@ -65,7 +64,6 @@
 		69C0CF4726158EA8000B466D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		69C0CF4A2615C72B000B466D /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		69C0CF4D2615D11E000B466D /* ContactTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTabBarController.swift; sourceTree = "<group>"; };
-		69C0CF512615D7AD000B466D /* NewContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +77,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6904BC42261B1A1B002F98E8 /* Other UI */ = {
+			isa = PBXGroup;
+			children = (
+				69C0CF1726146C87000B466D /* RecentCallsViewController.swift */,
+				69C0CF4D2615D11E000B466D /* ContactTabBarController.swift */,
+			);
+			path = "Other UI";
+			sourceTree = "<group>";
+		};
+		6904BC43261B1A59002F98E8 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		690FA7BD261A368C005F21AB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,12 +143,11 @@
 				69C0CF0B261463DD000B466D /* LaunchScreen.storyboard */,
 				69C0CF0E261463DD000B466D /* Info.plist */,
 				69C0CF06261463DC000B466D /* ContactBookFinal.xcdatamodeld */,
-				69C0CF1726146C87000B466D /* RecentCallsViewController.swift */,
+				6904BC43261B1A59002F98E8 /* Other */,
+				6904BC42261B1A1B002F98E8 /* Other UI */,
 				69C0CF3D26148934000B466D /* Async.swift */,
 				69C0CF4726158EA8000B466D /* Settings.bundle */,
 				69C0CF4A2615C72B000B466D /* SettingsBundleHelper.swift */,
-				69C0CF4D2615D11E000B466D /* ContactTabBarController.swift */,
-				69C0CF512615D7AD000B466D /* NewContactViewController.swift */,
 			);
 			path = ContactBookFinal;
 			sourceTree = "<group>";
@@ -153,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				69C0CF2026147B94000B466D /* ContactsRepository.swift */,
-				69C0CF2626147D1E000B466D /* HardcodedRepo.swift */,
+				69C0CF2626147D1E000B466D /* CallRecordsRepo.swift */,
 				69C0CF2326147C6E000B466D /* CallHistoryRepository.swift */,
 				69C0CF2B26147DD7000B466D /* ServicesFactory.swift */,
 				69C0CF2E26147E2A000B466D /* DefaultServicesFactory.swift */,
@@ -240,7 +253,7 @@
 				69C0CF1C261472D3000B466D /* ContactTableViewCell.swift in Sources */,
 				69C0CF37261488AD000B466D /* ContactsPresenter.swift in Sources */,
 				69C0CF3226147E55000B466D /* GistContactsRepo.swift in Sources */,
-				69C0CF2726147D1E000B466D /* HardcodedRepo.swift in Sources */,
+				69C0CF2726147D1E000B466D /* CallRecordsRepo.swift in Sources */,
 				69C0CF2126147B94000B466D /* ContactsRepository.swift in Sources */,
 				69C0CF02261463DC000B466D /* ViewControllerContacts.swift in Sources */,
 				69C0CEFE261463DC000B466D /* AppDelegate.swift in Sources */,
@@ -252,7 +265,6 @@
 				69C0CF4E2615D11E000B466D /* ContactTabBarController.swift in Sources */,
 				69C0CF00261463DC000B466D /* SceneDelegate.swift in Sources */,
 				69C0CF3E26148934000B466D /* Async.swift in Sources */,
-				69C0CF522615D7AD000B466D /* NewContactViewController.swift in Sources */,
 				69C0CF3B261488EA000B466D /* ContactsView.swift in Sources */,
 				690FA7C5261A40DA005F21AB /* InitialsCustomView.swift in Sources */,
 				690FA7B8261A15DF005F21AB /* RecentTableViewCell.swift in Sources */,

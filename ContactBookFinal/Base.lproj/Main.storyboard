@@ -79,22 +79,6 @@
             </objects>
             <point key="canvasLocation" x="-110.14492753623189" y="156.69642857142856"/>
         </scene>
-        <!--New Contact View Controller-->
-        <scene sceneID="rFq-mG-9FB">
-            <objects>
-                <viewController id="HBB-rc-4MM" customClass="NewContactViewController" customModule="ContactBookFinal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="drO-9k-ICG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="LY8-aI-aEA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="wjJ-f3-ug0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="efP-uh-RLk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="942" y="157"/>
-        </scene>
         <!--Contact Tab Bar Controller-->
         <scene sceneID="qOR-R2-ekk">
             <objects>

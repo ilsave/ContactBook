@@ -18,9 +18,8 @@ class ViewControllerContacts: UIViewController {
     private var output: ContactsViewOutput!
 
     @IBOutlet var tableViewContacts: UITableView!
-    
-    
     @IBOutlet var indicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let presenter = ContactsPresenter(contactsRepository: Services.factory.getContactsRepository(), callHistoryRepository: Services.factory.getCallHistoryRepository())
@@ -60,7 +59,6 @@ extension ViewControllerContacts: CNContactViewControllerDelegate{
         let userInput = ContactsData.init(firstName: contact.givenName, lastName: contact.familyName, phone: phoneNumber, birthday: birthday)
         
         output.newContactAdded(userInput)
-       // output.createNotification(contact: contact)
     }
     
     
@@ -111,7 +109,9 @@ extension ViewControllerContacts: ContactsView {
     }
     
     func showError(_ error: Error) {
-        
+        let alert = UIAlertController(title: "We got error", message: "Something went wrong!", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Nothing special as usual", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
