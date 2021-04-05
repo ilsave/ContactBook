@@ -80,7 +80,8 @@ extension ViewControllerContacts: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell", for: indexPath)
         as! ContactTableViewCell
         cell.emailLabel?.text = contacts[indexPath.row].phone
-        cell.nameLabel?.text = contacts[indexPath.row].firstName + contacts[indexPath.row].lastName
+        cell.nameLabel?.text = contacts[indexPath.row].firstName
+        cell.surNameLabel?.text = contacts[indexPath.row].lastName
         return cell
     }
 }

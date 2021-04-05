@@ -12,7 +12,7 @@ class InitialsCustomView: UIView {
     
     @IBOutlet var customView: UIView!
     
-    @IBInspectable var outlineColor: UIColor = .blue
+
     
     var name: String? = nil
     
@@ -29,20 +29,46 @@ class InitialsCustomView: UIView {
      
      //common func to init our view
      private func setupView() {
-       backgroundColor = .red
+       //backgroundColor = .red
      }
     
     override func draw(_ rect: CGRect) {
+        guard let name = name else {
+            return
+        }
         self.layer.cornerRadius = rect.width / 2;
         self.layer.masksToBounds = true;
         let path = UIBezierPath(ovalIn: rect)
-        UIColor.blue.setFill()
+        self.backgroundColor = .random()
+
+        self.backgroundColor!.setFill()
         path.fill()
-        
-        let text = NSAttributedString(string: name ?? "")
-        let textSize: CGSize = text.size()
-        let viewCenter = CGPoint(x:(rect.width - textSize.width)/2, y: (rect.height - textSize.height)/2)
+        let attributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25.0)
+        ]
+        let text = NSAttributedString(string: name, attributes: attributes)
+        let size: CGSize = text.size()
+        let viewCenter = CGPoint(x:(rect.width - size.width)/2, y: (rect.height - size.height)/2)
         text.draw(at:viewCenter)
+    }
+    
+    
+}
+
+extension CGFloat {
+    static func random() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
+
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(
+           red:   .random(),
+           green: .random(),
+           blue:  .random(),
+           alpha: 1.0
+        )
     }
 }
 

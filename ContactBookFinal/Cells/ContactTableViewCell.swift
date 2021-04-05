@@ -11,10 +11,10 @@ class ContactTableViewCell: UITableViewCell {
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var surNameLabel: UILabel!
+    
     @IBOutlet var customCirle: InitialsCustomView!
     
-    
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,8 +22,7 @@ class ContactTableViewCell: UITableViewCell {
  
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        customCirle.name = String(nameLabel.text!.prefix(1))
-        // Configure the view for the selected state
+        customCirle.name = String(nameLabel.text!.prefix(1)) + String(surNameLabel.text!.prefix(1))
     }
     
 }
