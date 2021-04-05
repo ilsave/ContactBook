@@ -42,7 +42,6 @@ class ViewControllerContacts: UIViewController {
         }
     }
     @IBAction func newContactPressed(_ sender: Any) {
-        print("you touched")
         let vc = CNContactViewController(forNewContact: nil)
         vc.delegate = self
         present(UINavigationController(rootViewController: vc), animated: true)
@@ -61,11 +60,6 @@ extension ViewControllerContacts: CNContactViewControllerDelegate{
             print("we have problems")
             return
         }
-        print(contact.birthday?.day)
-        print(contact.birthday?.calendar)
-        print(contact.birthday?.date)
-        print(contact.birthday?.day)
-    
         let userInput = ContactsData.init(firstName: contact.givenName, lastName: contact.familyName, phone: phoneNumber)
         output.newContactAdded(userInput)
         output.createNotification(contact: contact)

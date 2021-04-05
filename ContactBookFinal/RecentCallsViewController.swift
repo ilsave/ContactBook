@@ -16,6 +16,9 @@ class RecentCallsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+        let nib = UINib(nibName: "RecentTableViewCell", bundle: nil)
+        tableViewRecentCalls.register(nib, forCellReuseIdentifier: "RecentTableViewCell")
         
         tableViewRecentCalls.delegate = self
         tableViewRecentCalls.dataSource = self
@@ -33,13 +36,15 @@ class RecentCallsViewController: UIViewController {
 }
 
 extension RecentCallsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recentCalls.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellRecent", for: indexPath)
-        cell.textLabel?.text = recentCalls[indexPath.row].phone
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecentTableViewCell", for: indexPath) as! RecentTableViewCell
+        cell.nameTitle?.text = recentCalls[indexPath.row].phone
+        cell.timeTitle?.text = recentCalls[indexPath.row].timestamp
         return cell
     }
 }

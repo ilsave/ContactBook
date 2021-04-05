@@ -1,22 +1,22 @@
 //
-//  ContactTableViewCell.swift
+//  RecentTableViewCell.swift
 //  ContactBookFinal
 //
-//  Created by Gushchin Ilya on 31.03.2021.
+//  Created by Gushchin Ilya on 04.04.2021.
 //
 
 import UIKit
 
-class ContactTableViewCell: UITableViewCell {
-    
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var emailLabel: UILabel!
+class RecentTableViewCell: UITableViewCell {
 
+    @IBOutlet var nameTitle: UILabel!
+    @IBOutlet var timeTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
- 
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

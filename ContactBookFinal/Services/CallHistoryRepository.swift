@@ -9,7 +9,7 @@ import Foundation
 
 
 struct CallRecord {
-    let timestamp: Date
+    let timestamp: String
     let phone: String
 }
 

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jG7-w6-QX4">
-                        <rect key="frame" x="10" y="10" width="42" height="21"/>
+                        <rect key="frame" x="100" y="10" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ho3-Jt-V9R">
-                        <rect key="frame" x="10" y="40" width="42" height="21"/>
+                        <rect key="frame" x="100" y="40" width="42" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="cmR-Qp-W8U"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="rUq-CF-EUx"/>
@@ -32,21 +33,32 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d4Q-nW-ilR" customClass="InitialsCustomView" customModule="ContactBookFinal" customModuleProvider="target">
+                        <rect key="frame" x="10" y="0.0" width="71" height="71"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Ho3-Jt-V9R" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="1de-rY-Wpv"/>
-                    <constraint firstItem="Ho3-Jt-V9R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4OY-1S-ttA"/>
                     <constraint firstAttribute="bottom" secondItem="Ho3-Jt-V9R" secondAttribute="bottom" constant="20" id="6mo-Cv-RdG"/>
+                    <constraint firstItem="Ho3-Jt-V9R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="100" id="CZ0-MP-NXs"/>
                     <constraint firstItem="jG7-w6-QX4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="EHK-A6-NIM"/>
-                    <constraint firstItem="jG7-w6-QX4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="QCb-3K-k39"/>
+                    <constraint firstItem="jG7-w6-QX4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="100" id="QCb-3K-k39"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="customCirle" destination="d4Q-nW-ilR" id="PeA-tc-Av4"/>
                 <outlet property="emailLabel" destination="Ho3-Jt-V9R" id="D4c-4g-Ubz"/>
                 <outlet property="nameLabel" destination="jG7-w6-QX4" id="l7j-9E-C35"/>
             </connections>
             <point key="canvasLocation" x="223.91304347826087" y="123.54910714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

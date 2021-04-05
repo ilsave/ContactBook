@@ -92,7 +92,12 @@ extension ContactsPresenter: ContactsViewOutput {
     func makeCall(to contact: Contact) {
         
         do {
-            try callHistoryRepository.add(record: CallRecord(timestamp: Date(),
+            let now = Date()
+            let formatter = DateFormatter()
+            formatter.timeZone = TimeZone.current
+            formatter.dateFormat = "HH:mm"
+            let dateString = formatter.string(from: now)
+            try callHistoryRepository.add(record: CallRecord(timestamp: dateString,
                                                              phone: contact.phone))
         } catch {
             view?.showError(error)
