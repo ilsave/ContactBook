@@ -26,7 +26,6 @@ class RecentCallsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         do{
             recentCalls = try callHistoryRepository.getHistory()
-            print("size of calls \(recentCalls.count)")
             tableViewRecentCalls.reloadData()
         } catch {
             print(error)
