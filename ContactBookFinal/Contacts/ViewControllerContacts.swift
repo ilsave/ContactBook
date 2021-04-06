@@ -27,10 +27,10 @@ class ViewControllerContacts: UIViewController {
         presenter.view = self
         output = presenter
         
+        indicator.center = self.view.center
         let nib = UINib(nibName: "ContactTableViewCell", bundle: nil)
         tableViewContacts.register(nib, forCellReuseIdentifier: "ContactTableViewCell")
         
-        // GifContactTableViewCell
         let nibGif = UINib(nibName: "GifContactTableViewCell", bundle: nil)
         tableViewContacts.register(nibGif, forCellReuseIdentifier: "GifContactTableViewCell")
         
