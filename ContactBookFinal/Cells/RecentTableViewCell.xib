@@ -31,11 +31,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="O21-8w-zCL" secondAttribute="bottom" constant="10" id="3E7-g4-rZX"/>
+                    <constraint firstAttribute="trailing" secondItem="O21-8w-zCL" secondAttribute="trailing" constant="10" id="4jz-9C-wKI"/>
+                    <constraint firstItem="O21-8w-zCL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PcN-Vh-TvS" secondAttribute="trailing" constant="5" id="W3M-xK-lSP"/>
                     <constraint firstAttribute="trailing" secondItem="O21-8w-zCL" secondAttribute="trailing" constant="10" id="aAH-2G-AYo"/>
+                    <constraint firstAttribute="bottom" secondItem="O21-8w-zCL" secondAttribute="bottom" constant="10" id="cGr-xK-r7l"/>
                     <constraint firstAttribute="bottom" secondItem="PcN-Vh-TvS" secondAttribute="bottom" constant="10" id="dWx-SQ-wJk"/>
                     <constraint firstItem="PcN-Vh-TvS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="eyY-qz-Iil"/>
                     <constraint firstItem="O21-8w-zCL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="lw4-JA-oKV"/>
-                    <constraint firstItem="O21-8w-zCL" firstAttribute="leading" secondItem="PcN-Vh-TvS" secondAttribute="trailing" constant="233" id="pvL-dQ-hSX"/>
+                    <constraint firstItem="O21-8w-zCL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uvo-vL-HYZ"/>
                     <constraint firstItem="PcN-Vh-TvS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="wJx-Vd-RxR"/>
                 </constraints>
             </tableViewCellContentView>
