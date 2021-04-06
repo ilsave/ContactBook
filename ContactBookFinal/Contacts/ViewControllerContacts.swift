@@ -80,8 +80,32 @@ extension ViewControllerContacts: UITableViewDataSource {
         cell.emailLabel?.text = contacts[indexPath.row].phone
         cell.nameLabel?.text = contacts[indexPath.row].firstName
         cell.surNameLabel?.text = contacts[indexPath.row].lastName
+        
+        let tapGesture = MyTapGesture(target: self,  action: #selector(doubleTapped))
+        tapGesture.customCirle = cell.customCirle
+          cell.customCirle.addGestureRecognizer(tapGesture)
+        
         return cell
     }
+    
+    @objc func doubleTapped(sender : MyTapGesture) {
+        let countScale: CGFloat = 1.9
+        let duration = 1.0
+        let delay: TimeInterval = 0
+        
+        let screenRect = UIScreen.main.bounds
+        let scale = Int(screenRect.size.width / sender.customCirle.frame.width * countScale)
+        
+        UIView.animate(withDuration: duration, delay: delay,
+        animations: {
+            sender.customCirle.transform = self.view.transform.scaledBy(x: CGFloat(scale), y: CGFloat(scale))
+            sender.customCirle.transform = CGAffineTransform(scaleX: CGFloat(scale), y: CGFloat(scale)) }
+       )
+    }
+}
+
+class MyTapGesture: UITapGestureRecognizer {
+    var customCirle: InitialsCustomView!
 }
 
 extension ViewControllerContacts: UITableViewDelegate {
