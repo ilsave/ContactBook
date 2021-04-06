@@ -13,6 +13,7 @@ struct Contact: Codable {
     let firstName: String
     let lastName: String
     let phone: String
+    let gifUrl: String?
 }
 
 struct ContactsData {

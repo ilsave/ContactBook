@@ -19,7 +19,7 @@ class GistContactsRepo: ContactsRepository {
     
     
     
-    let secondsToWaitForResponse: Int = 3
+    let secondsToWaitForResponse: Int = 30
     
     init(url: URL) {
         self.url = url
@@ -44,10 +44,13 @@ class GistContactsRepo: ContactsRepository {
             let data = try Data(contentsOf: fileURL!)
             let jsonDecoder = JSONDecoder()
             let items = try jsonDecoder.decode([Contact].self, from: data)
+            
+            print("file was availible \(pathComponent) count \(items.count)")
             return items
         } else {
             fileURL = URL(fileURLWithPath: databaseName, relativeTo: docDirectoryURL)
             let jsonEncoder = JSONEncoder()
+            print("file was not availible")
             let contactsDb = try getContactsFromApi()
             let jsonCodedData2 = try jsonEncoder.encode(contactsDb)
             try jsonCodedData2.write(to: fileURL!)
@@ -81,17 +84,21 @@ class GistContactsRepo: ContactsRepository {
                 let lastname: String
                 let phone: String
                 let email: String
+                let photoUrl: String?
             }
             
             do {
+                print(data.count)
                 self.contacts = try self.decoder.decode([ContactsResponse].self, from: data).map {
                     Contact(recordId: UUID().uuidString,
                             firstName: $0.firstname,
                             lastName: $0.lastname,
-                            phone: $0.phone)
+                            phone: $0.phone,
+                            gifUrl: $0.photoUrl)
                 }
-                
+                print("we downloaded")
             } catch {
+                print("something went wrong")
                 resultError = error
             }
         }
@@ -122,7 +129,7 @@ class GistContactsRepo: ContactsRepository {
         let data = try Data(contentsOf: pathComponent)
         var items = try jsonDecoder.decode([Contact].self, from: data)
         
-        let newContact = Contact.init(recordId: UUID().uuidString, firstName: contact.firstName, lastName: contact.lastName, phone: contact.phone)
+        let newContact = Contact.init(recordId: UUID().uuidString, firstName: contact.firstName, lastName: contact.lastName, phone: contact.phone, gifUrl: nil)
         
         items.append(newContact)
         

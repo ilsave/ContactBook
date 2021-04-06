@@ -8,6 +8,7 @@
 import UIKit
 import ContactsUI
 import UserNotifications
+import SwiftyGif
 
 class ViewControllerContacts: UIViewController {
     
@@ -27,8 +28,12 @@ class ViewControllerContacts: UIViewController {
         output = presenter
         
         let nib = UINib(nibName: "ContactTableViewCell", bundle: nil)
-        
         tableViewContacts.register(nib, forCellReuseIdentifier: "ContactTableViewCell")
+        
+        // GifContactTableViewCell
+        let nibGif = UINib(nibName: "GifContactTableViewCell", bundle: nil)
+        tableViewContacts.register(nibGif, forCellReuseIdentifier: "GifContactTableViewCell")
+        
         tableViewContacts.rowHeight = UITableView.automaticDimension
         tableViewContacts.delegate = self
         tableViewContacts.dataSource = self
@@ -75,6 +80,18 @@ extension ViewControllerContacts: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let path = contacts[indexPath.row].gifUrl {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GifContactTableViewCell", for: indexPath)
+            as! GifContactTableViewCell
+            
+            let url = URL(string: path)
+            let loader = UIActivityIndicatorView(style: .white)
+            cell.imageGifView.setGifFromURL(url!, customLoader: loader)
+            cell.phoneLabel?.text = contacts[indexPath.row].phone
+            cell.nameLabel?.text = contacts[indexPath.row].firstName
+            cell.surnameLabel?.text = contacts[indexPath.row].lastName
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell", for: indexPath)
         as! ContactTableViewCell
         cell.emailLabel?.text = contacts[indexPath.row].phone

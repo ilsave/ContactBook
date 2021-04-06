@@ -16,21 +16,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="336" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O21-8w-zCL">
-                        <rect key="frame" x="269" y="0.0" width="67" height="70"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O21-8w-zCL">
+                        <rect key="frame" x="284.5" y="10" width="41.5" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcN-Vh-TvS">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcN-Vh-TvS">
+                        <rect key="frame" x="10" y="10" width="41.5" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="O21-8w-zCL" secondAttribute="bottom" constant="10" id="3E7-g4-rZX"/>
+                    <constraint firstAttribute="trailing" secondItem="O21-8w-zCL" secondAttribute="trailing" constant="10" id="aAH-2G-AYo"/>
+                    <constraint firstAttribute="bottom" secondItem="PcN-Vh-TvS" secondAttribute="bottom" constant="10" id="dWx-SQ-wJk"/>
+                    <constraint firstItem="PcN-Vh-TvS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="eyY-qz-Iil"/>
+                    <constraint firstItem="O21-8w-zCL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="lw4-JA-oKV"/>
+                    <constraint firstItem="O21-8w-zCL" firstAttribute="leading" secondItem="PcN-Vh-TvS" secondAttribute="trailing" constant="233" id="pvL-dQ-hSX"/>
+                    <constraint firstItem="PcN-Vh-TvS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="wJx-Vd-RxR"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
