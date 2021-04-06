@@ -38,7 +38,6 @@ class InitialsCustomView: UIView {
         let size: CGSize = text.size()
         let viewCenter = CGPoint(x:(rect.width - size.width)/2, y: (rect.height - size.height)/2)
         text.draw(at:viewCenter)
-        
     }
     
 }
@@ -59,7 +58,3 @@ extension UIColor {
         )
     }
 }
-
-
-
-
