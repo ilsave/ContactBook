@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		23DAEADF2DB503AECA7D58A2 /* Pods_ContactBookFinal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E66F0A88D13993DECAD168D7 /* Pods_ContactBookFinal.framework */; };
-		690FA7B8261A15DF005F21AB /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690FA7B6261A15DF005F21AB /* RecentTableViewCell.swift */; };
-		690FA7B9261A15DF005F21AB /* RecentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 690FA7B7261A15DF005F21AB /* RecentTableViewCell.xib */; };
 		690FA7C5261A40DA005F21AB /* InitialsCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690FA7C4261A40DA005F21AB /* InitialsCustomView.swift */; };
 		690FA7C9261A420B005F21AB /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 690FA7C8261A420B005F21AB /* CustomView.xib */; };
 		69874F0A261C718000E56D26 /* GifContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69874F08261C718000E56D26 /* GifContactTableViewCell.swift */; };
 		69874F0B261C718000E56D26 /* GifContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69874F09261C718000E56D26 /* GifContactTableViewCell.xib */; };
+		69AAD3EF261CAAA500C70A8D /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AAD3ED261CAAA500C70A8D /* RecentTableViewCell.swift */; };
+		69AAD3F0261CAAA500C70A8D /* RecentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69AAD3EE261CAAA500C70A8D /* RecentTableViewCell.xib */; };
 		69C0CEFE261463DC000B466D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CEFD261463DC000B466D /* AppDelegate.swift */; };
 		69C0CF00261463DC000B466D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CEFF261463DC000B466D /* SceneDelegate.swift */; };
 		69C0CF02261463DC000B466D /* ViewControllerContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C0CF01261463DC000B466D /* ViewControllerContacts.swift */; };
@@ -40,12 +40,12 @@
 
 /* Begin PBXFileReference section */
 		5E5B8A4AF0A3445BBFAA4236 /* Pods-ContactBookFinal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactBookFinal.release.xcconfig"; path = "Target Support Files/Pods-ContactBookFinal/Pods-ContactBookFinal.release.xcconfig"; sourceTree = "<group>"; };
-		690FA7B6261A15DF005F21AB /* RecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
-		690FA7B7261A15DF005F21AB /* RecentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentTableViewCell.xib; sourceTree = "<group>"; };
 		690FA7C4261A40DA005F21AB /* InitialsCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialsCustomView.swift; sourceTree = "<group>"; };
 		690FA7C8261A420B005F21AB /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		69874F08261C718000E56D26 /* GifContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifContactTableViewCell.swift; sourceTree = "<group>"; };
 		69874F09261C718000E56D26 /* GifContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GifContactTableViewCell.xib; sourceTree = "<group>"; };
+		69AAD3ED261CAAA500C70A8D /* RecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
+		69AAD3EE261CAAA500C70A8D /* RecentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentTableViewCell.xib; sourceTree = "<group>"; };
 		69C0CEFA261463DC000B466D /* ContactBookFinal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactBookFinal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C0CEFD261463DC000B466D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69C0CEFF261463DC000B466D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,10 +115,10 @@
 			children = (
 				69C0CF1A261472D3000B466D /* ContactTableViewCell.swift */,
 				69C0CF1B261472D3000B466D /* ContactTableViewCell.xib */,
-				690FA7B6261A15DF005F21AB /* RecentTableViewCell.swift */,
-				690FA7B7261A15DF005F21AB /* RecentTableViewCell.xib */,
 				69874F08261C718000E56D26 /* GifContactTableViewCell.swift */,
 				69874F09261C718000E56D26 /* GifContactTableViewCell.xib */,
+				69AAD3ED261CAAA500C70A8D /* RecentTableViewCell.swift */,
+				69AAD3EE261CAAA500C70A8D /* RecentTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -202,7 +202,6 @@
 				DD84AB4D19F421485BBB1F17 /* Pods-ContactBookFinal.debug.xcconfig */,
 				5E5B8A4AF0A3445BBFAA4236 /* Pods-ContactBookFinal.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -269,8 +268,8 @@
 				69874F0B261C718000E56D26 /* GifContactTableViewCell.xib in Resources */,
 				69C0CF0D261463DD000B466D /* LaunchScreen.storyboard in Resources */,
 				69C0CF4826158EA8000B466D /* Settings.bundle in Resources */,
+				69AAD3F0261CAAA500C70A8D /* RecentTableViewCell.xib in Resources */,
 				69C0CF0A261463DD000B466D /* Assets.xcassets in Resources */,
-				690FA7B9261A15DF005F21AB /* RecentTableViewCell.xib in Resources */,
 				69C0CF05261463DC000B466D /* Main.storyboard in Resources */,
 				690FA7C9261A420B005F21AB /* CustomView.xib in Resources */,
 			);
@@ -341,10 +340,10 @@
 				69C0CF1826146C87000B466D /* RecentCallsViewController.swift in Sources */,
 				69C0CF4E2615D11E000B466D /* ContactTabBarController.swift in Sources */,
 				69C0CF00261463DC000B466D /* SceneDelegate.swift in Sources */,
+				69AAD3EF261CAAA500C70A8D /* RecentTableViewCell.swift in Sources */,
 				69C0CF3E26148934000B466D /* Async.swift in Sources */,
 				69C0CF3B261488EA000B466D /* ContactsView.swift in Sources */,
 				690FA7C5261A40DA005F21AB /* InitialsCustomView.swift in Sources */,
-				690FA7B8261A15DF005F21AB /* RecentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
