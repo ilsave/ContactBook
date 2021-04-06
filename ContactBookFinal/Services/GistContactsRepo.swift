@@ -44,13 +44,10 @@ class GistContactsRepo: ContactsRepository {
             let data = try Data(contentsOf: fileURL!)
             let jsonDecoder = JSONDecoder()
             let items = try jsonDecoder.decode([Contact].self, from: data)
-            
-            print("file was availible \(pathComponent) count \(items.count)")
             return items
         } else {
             fileURL = URL(fileURLWithPath: databaseName, relativeTo: docDirectoryURL)
             let jsonEncoder = JSONEncoder()
-            print("file was not availible")
             let contactsDb = try getContactsFromApi()
             let jsonCodedData2 = try jsonEncoder.encode(contactsDb)
             try jsonCodedData2.write(to: fileURL!)
@@ -96,9 +93,7 @@ class GistContactsRepo: ContactsRepository {
                             phone: $0.phone,
                             gifUrl: $0.photoUrl)
                 }
-                print("we downloaded")
             } catch {
-                print("something went wrong")
                 resultError = error
             }
         }
